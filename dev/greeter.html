@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="form_bank">
+                    <div class="col-md-8">
+                        <p>Процентная ставка</p>
+                        <input id="percent" name="percent" type="text" value="12">
+                    </div>
+                    <div class="col-md-8">
+                        <p>Срок (месяцы)</p>
+                        <input id="monthes" name="monthes" type="text" value="60">
+                    </div>
+                    <div class="col-md-8">
+                        <p>Величина Кредита</p>
+                        <input id="credit_amount" name="credit_amount" value="1000000">
+                    </div>
+                    <div class="col-md-8">
+                        <button id="but">Рассчитать</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-8">
+                    <p class="m_per">Месячный процент: <span></span></p>
+                </div>
+                <div class="col-md-8">
+                    <p class="m_pay">Выплаты в месяц: <span></span></p>
+                </div>
+                <div class="col-md-8">
+                    <p class="over_pay">Переплата: <span></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script src="greeter.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#form_bank').submit(function(event) {
+                var percent = parseInt($('#percent').val()),
+                    monthes = parseInt($('#monthes').val()),
+                    credit_amount = parseInt($('#credit_amount').val());
+
+                var count = new bankCount({
+                    percent: percent,
+                    monthes: monthes,
+                    credit_amount: credit_amount
+                });
+
+                count.showResults();
+                event.preventDefault();
+            });
+
+
+        })
+
+    </script>
+</body>
+</html>

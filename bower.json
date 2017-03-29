@@ -1,0 +1,21 @@
+{
+  "directory": "dev/libs/",
+  "name": "typescript",
+  "description": "",
+  "main": "greeter.js",
+  "authors": [
+    "trof <reatrof@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
